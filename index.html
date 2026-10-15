@@ -49,10 +49,32 @@
     header > p:last-child { margin: 20px 0 0; color: var(--muted); font-size: 1.12rem; }
 
     section { margin-top: 46px; }
-    h2 { display: flex; align-items: center; gap: 14px; margin: 0 0 18px; font-size: 1.35rem; }
-    h2::after { content: ""; height: 1px; flex: 1; background: var(--border); }
+    details { border-top: 1px solid var(--border); }
+    summary {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0;
+      cursor: pointer;
+      list-style: none;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.12;
+      text-align: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      color: var(--accent);
+      font-size: 1.35rem;
+      font-weight: 400;
+      transition: transform .18s ease;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
 
-    .page-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .page-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding-bottom: 8px; }
 
     .page-link {
       display: block;
@@ -80,7 +102,11 @@
 
     footer { margin-top: 72px; color: var(--muted); font-size: .88rem; }
 
-    @media (max-width: 520px) { main { width: min(100% - 28px, 960px); padding-top: 58px; } }
+    @media (max-width: 760px) { .page-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 520px) {
+      main { width: min(100% - 28px, 960px); padding-top: 58px; }
+      .page-list { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -91,15 +117,17 @@
       <p>A growing collection of concise field guides, organized by topic.</p>
     </header>
 
-    <section aria-labelledby="electronic-games">
-      <h2 id="electronic-games">Electronic Games</h2>
-      <div class="page-list">
-        <a class="page-link" href="pages/electronic_games/star_wars_zero_company_guide.html">
-          <h3>Star Wars: Zero Company — Field Guide</h3>
-          <p>A practical reference guide for Star Wars: Zero Company.</p>
-          <span class="path">pages/electronic_games/</span>
-        </a>
-      </div>
+    <section>
+      <details open>
+        <summary>Electronic Games</summary>
+        <div class="page-list">
+          <a class="page-link" href="pages/electronic_games/star_wars_zero_company_guide.html">
+            <h3>Star Wars: Zero Company — Field Guide</h3>
+            <p>A practical reference guide for Star Wars: Zero Company.</p>
+            <span class="path">pages/electronic_games/</span>
+          </a>
+        </div>
+      </details>
     </section>
 
     <footer>More topics and guides will appear here as the library grows.</footer>
