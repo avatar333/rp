@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A spoiler-light Bleach episode viewing reference: manga canon, mixed canon/filler, and filler.">
+  <title>Bleach — Episode Viewing Reference</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090b11;
+      --panel: #121722;
+      --panel-strong: #18202e;
+      --line: #2c394a;
+      --text: #edf1f5;
+      --muted: #aab4c1;
+      --blood: #cf4d4c;
+      --spirit: #74bcd4;
+      --gold: #e8bd61;
+      --shadow: 0 18px 45px rgba(0, 0, 0, .3);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(207, 77, 76, .13), transparent 34rem),
+        radial-gradient(ellipse at 0% 22%, rgba(116, 188, 212, .12), transparent 31rem),
+        var(--bg);
+      font: 16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; }
+    main { width: min(100% - 40px, 1100px); margin: 0 auto; padding: 56px 0 76px; }
+    .back { color: var(--spirit); font-size: .92rem; text-decoration: none; }
+    .back:hover { text-decoration: underline; }
+    header { position: relative; margin: 36px 0 44px; padding: 38px 0 40px; border-bottom: 1px solid var(--line); overflow: hidden; }
+    header::after {
+      content: "";
+      position: absolute;
+      right: 0; bottom: -73px;
+      width: min(49vw, 500px); height: 210px;
+      border: 1px solid rgba(207, 77, 76, .34);
+      transform: skewX(-28deg);
+      background: repeating-linear-gradient(-45deg, transparent 0 17px, rgba(207, 77, 76, .055) 18px 19px);
+      pointer-events: none;
+    }
+    .eyebrow { position: relative; z-index: 1; margin: 0 0 12px; color: var(--blood); font-size: .77rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { position: relative; z-index: 1; max-width: 760px; margin: 0; font-size: clamp(2.5rem, 7vw, 5.1rem); line-height: .96; letter-spacing: -.065em; }
+    .lede { position: relative; z-index: 1; max-width: 650px; margin: 20px 0 0; color: var(--muted); font-size: 1.1rem; }
+    .notice { margin-bottom: 36px; padding: 16px 18px; color: #d3dce4; background: rgba(116, 188, 212, .08); border-left: 3px solid var(--spirit); }
+    .notice strong { color: var(--spirit); }
+    .legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 42px; }
+    .legend a { padding: 18px; text-decoration: none; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+    .legend a:hover, .legend a:focus-visible { border-color: var(--spirit); outline: none; }
+    .legend b, .legend span { display: block; }
+    .legend b { font-size: .95rem; }
+    .legend span { margin-top: 5px; color: var(--muted); font-size: .82rem; }
+    .dot { display: inline-block; width: .68rem; height: .68rem; margin-right: 8px; border-radius: 50%; }
+    .canon .dot { background: var(--spirit); } .mixed .dot { background: var(--gold); } .filler .dot { background: var(--blood); }
+    section { margin-top: 40px; scroll-margin-top: 24px; }
+    h2 { margin: 0 0 9px; font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -.025em; }
+    .section-note { margin: 0 0 17px; color: var(--muted); }
+    .ranges { display: flex; flex-wrap: wrap; gap: 9px; padding: 22px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+    .range { padding: 7px 10px; border: 1px solid currentColor; border-radius: 5px; font: 700 .88rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    #canon .range { color: var(--spirit); background: rgba(116, 188, 212, .06); }
+    #mixed .range { color: var(--gold); background: rgba(232, 189, 97, .06); }
+    #filler .range { color: var(--blood); background: rgba(207, 77, 76, .06); }
+    footer { margin-top: 58px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+    footer a { color: var(--spirit); }
+    @media (max-width: 680px) { main { width: min(100% - 28px, 1100px); padding-top: 32px; } .legend { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../../index.html">← Reference library</a>
+    <header>
+      <p class="eyebrow">Soul Society archives</p>
+      <h1>Bleach<br>Viewing Reference</h1>
+      <p class="lede">A spoiler-light episode map for the original 366-episode Bleach series. Use it to decide when to continue, sample, or skip.</p>
+    </header>
+
+    <aside class="notice"><strong>How to use this:</strong> “Manga canon” follows the source material; “mixed” combines canon and anime-original material; “filler” is anime-original. Episode ranges are inclusive.</aside>
+
+    <nav class="legend" aria-label="Episode classifications">
+      <a class="canon" href="#canon"><b><i class="dot"></i>Manga canon</b><span>Core story episodes</span></a>
+      <a class="mixed" href="#mixed"><b><i class="dot"></i>Mixed canon / filler</b><span>Contains both types of material</span></a>
+      <a class="filler" href="#filler"><b><i class="dot"></i>Filler</b><span>Anime-original episodes</span></a>
+    </nav>
+
+    <section id="canon">
+      <h2>Manga canon</h2>
+      <p class="section-note">Episodes classified as manga canon.</p>
+      <div class="ranges" aria-label="Manga canon episodes">
+        <span class="range">1–7</span><span class="range">9–26</span><span class="range">28–31</span><span class="range">34–45</span><span class="range">47–49</span><span class="range">51–63</span><span class="range">110</span><span class="range">112–115</span><span class="range">117–118</span><span class="range">121–123</span><span class="range">125–127</span><span class="range">138–140</span><span class="range">142</span><span class="range">144–145</span><span class="range">150–155</span><span class="range">157–159</span><span class="range">162–167</span><span class="range">191–192</span><span class="range">194–203</span><span class="range">208</span><span class="range">210–212</span><span class="range">215–221</span><span class="range">224–227</span><span class="range">269–273</span><span class="range">275</span><span class="range">277–283</span><span class="range">286</span><span class="range">289</span><span class="range">292–294</span><span class="range">297</span><span class="range">300–302</span><span class="range">306–309</span><span class="range">344</span><span class="range">346</span><span class="range">348–350</span><span class="range">352–354</span><span class="range">356</span><span class="range">358–366</span>
+      </div>
+    </section>
+
+    <section id="mixed">
+      <h2>Mixed canon / filler</h2>
+      <p class="section-note">Episodes classified as a blend of manga-canon and anime-original material.</p>
+      <div class="ranges" aria-label="Mixed canon and filler episodes">
+        <span class="range">8</span><span class="range">27</span><span class="range">32</span><span class="range">46</span><span class="range">109</span><span class="range">111</span><span class="range">116</span><span class="range">119–120</span><span class="range">124</span><span class="range">141</span><span class="range">143</span><span class="range">146</span><span class="range">156</span><span class="range">160–161</span><span class="range">190</span><span class="range">193</span><span class="range">206–207</span><span class="range">209</span><span class="range">222–223</span><span class="range">267–268</span><span class="range">274</span><span class="range">276</span><span class="range">284–285</span><span class="range">288</span><span class="range">290–291</span><span class="range">295–296</span><span class="range">310</span><span class="range">342–343</span><span class="range">345</span><span class="range">347</span><span class="range">351</span><span class="range">357</span>
+      </div>
+    </section>
+
+    <section id="filler">
+      <h2>Filler</h2>
+      <p class="section-note">Anime-original episodes, grouped into convenient ranges.</p>
+      <div class="ranges" aria-label="Filler episodes">
+        <span class="range">33</span><span class="range">50</span><span class="range">64–108</span><span class="range">128–137</span><span class="range">147–149</span><span class="range">168–189</span><span class="range">204–205</span><span class="range">213–214</span><span class="range">228–266</span><span class="range">287</span><span class="range">298–299</span><span class="range">303–305</span><span class="range">311–341</span><span class="range">355</span>
+      </div>
+    </section>
+
+    <footer>Classification source: <a href="https://www.animefillerlist.com/shows/bleach">Anime Filler List — Bleach</a> (accessed 15 October 2026). Classifications can change; check the source for updates.</footer>
+  </main>
+</body>
+</html>
